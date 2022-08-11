@@ -1,0 +1,23 @@
+<div class="container my-3">
+    <div class="row my-2">
+        <ng-container *ngFor ="let elect of electronics">
+        <div class="col-md-4 my-2">
+            <div class="card" style="width:18rem">
+                <div class="card-body">
+                    <div class="card-title bg-secondary text-center"><b>{{elect.title|uppercase}}</b></div><hr>
+                    <div class="card-text">
+                        <p><b>Item</b>: {{elect.ITEM}}</p>
+                        <p><b>Desccription</b>: {{elect.description}}...</p>
+                        <p><b>Price</b>:Rs:{{elect.price}}</p>
+                    </div>
+                </div>
+                <div class="card-footer d-grid">
+                    <button class="btn btn-primary">ADD TO CART</button>
+                </div>  
+            </div>
+
+        </div>
+    </ng-container>
+    </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="container my-3">
+    <div class="row ">
+        <ng-container *ngFor ="let fash of garments ">
+        <div class="col-md-4 my-2">
+            <div class="card" style="width:18rem">
+                <div class="card-body">
+                    <div class="card-title bg-secondary text-center"><b>{{fash.title|uppercase}}</b></div><hr>
+                    <div class="card-text">
+                        <p><b>Item</b>: {{fash.ITEM}}</p>
+                        <p><b>Desccription</b>: {{fash.description}}...</p>
+                        <p><b>Price</b>:Rs:{{fash.price}}</p>
+                    </div>
+                </div>
+                <div class="card-footer d-grid">
+                    <button class="btn btn-primary">ADD TO CART</button>
+                </div>  
+            </div>
+        </div>
+    </ng-container>
+    </div>
+</div>
+

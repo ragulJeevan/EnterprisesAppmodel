@@ -1,0 +1,280 @@
+  <div class="container">
+    <mat-tab-group>
+        <!--mobile-->
+        <mat-tab label="MOBILE">  
+            <div class="container my-4 ">
+              <div class="text-center"> <button class="btn btn-primary" (click)="addItem()">ADD PRODUCT</button> </div>  <hr>
+              <!--new product form-->
+                <div class="row">
+                    <ng-container *ngIf="showTable" class="container  mt-5">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-title text-center"><b>ADD NEW PRODUCT</b></div><hr>
+                                    <!-- <form [formGroup]="mobileForm">
+                                        <div class="mb-3">
+                                            <label for="title">TITLE</label>
+                                            <input type="text" class="form-control" formControlName="mobTitle" [(ngModel)]="mobTitle">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="model">Model</label>
+                                            <input type="text" class="form-control" formControlName="mobModel" [(ngModel)]="mobModel">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description">Description</label>
+                                            <textarea   cols="08" rows="05" class="form-control" formControlName="mobDescription" [(ngModel)]="mobDescription"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="price">Price</label>
+                                           <div class="input-group">
+                                            <span class="input-group-text">Rs</span>
+                                            <input type="number" class="form-control"formControlName="mobPrice" [(ngModel)]="mobPrice">
+                                           </div>                       
+                                         </div>
+                                        <div class="mb-3 text-center">
+                                            <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
+                                        </div>
+                                    </form> -->
+                                    <form #addMobile = "ngForm" >
+                                        <div class="mb-3">
+                                            <label for="title">TITLE</label>
+                                            <input type="text" class="form-control"  [(ngModel)]="mobTitle">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="model">Model</label>
+                                            <input type="text" class="form-control" [(ngModel)]="mobModel">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description">Description</label>
+                                            <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="mobDescription"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="price">Price</label>
+                                           <div class="input-group">
+                                            <span class="input-group-text">Rs</span>
+                                            <input type="number" class="form-control" [(ngModel)]="mobPrice">
+                                           </div>                       
+                                         </div>
+                                        <div class="mb-3 text-center">
+                                            <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <!--product preview-->
+                    <ng-container *ngIf="showCard" >
+                        <div class="col-md-6 my-2" >
+                            <div class="card" >
+                                <div class="card-body">
+                                    <div class="card-title text-center bg-secondary"><b>{{mobTitle|uppercase}}</b> </div>
+                                    <hr>
+                                    <div class="card-text">
+                                        <p><b>Model: </b>{{mobModel}}</p>
+                                        <p><b>Description</b>:{{mobDescription}}</p>
+                                        <p><span><b>Price</b>:RS:</span>{{mobPrice}}</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button class="btn btn-primary">ADD PRODUCT</button>    
+                                    <button class="btn btn-danger" type="reset">CANCEL</button>
+                                </div>  
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <!--product list table-->
+               <div class="container text-center my-4 table-responsive">
+                <table  class="mat-elevation-z8 table table-hover auto-index ">
+                    <thead >
+                        <tr>
+                            <th>S.NO</th>
+                            <th>TITLE</th>
+                            <th>MODEL</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor ="let mob of mobile1; let i = index ">
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{mob.title}}</td>
+                            <td>{{mob.model}}</td>
+                            <td>{{mob.description}}</td>
+                            <td>{{mob.price}}</td>
+                            <td><button class="btn btn-danger">DELETE</button></td>
+                        </tr>
+                    </tbody>
+                 </table>
+               </div>
+        </mat-tab>
+        <!--laptop-->
+        <mat-tab label="LAPTOP">
+            <div class="container my-4 text-center">
+                <button class="btn btn-primary">ADD PRODUCT</button>
+            </div>
+            <!--new product form-->
+            <!--product preview-->
+            <!--product list table-->
+               <div class="container text-center my-4 table-responsive">
+                <table  class="mat-elevation-z8 table table-hover ">
+                    <thead >
+                        <tr>
+                            <th>S.NO</th>
+                            <th>TITLE</th>
+                            <th>PROCESSOR</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor ="let lap of laptop1; let i = index" >
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{lap.title}}</td>
+                            <td>{{lap.processor}}</td>
+                            <td>{{lap.description}}</td>
+                            <td>{{lap.price}}</td>
+                            <td><button class="btn btn-danger">DELETE</button></td>
+                        </tr>
+                    </tbody>
+                 </table>
+               </div>
+        </mat-tab>
+        <!--electronics-->
+        <mat-tab label="ELECTRONICS">
+            <div class="container my-4 text-center">
+                <button class="btn btn-primary">ADD PRODUCT</button>
+            </div>
+            <!--new product form-->
+            <!--product preview-->
+            <!--product list table-->
+               <div class="container text-center my-4 table-responsive">
+                <table  class="mat-elevation-z8 table table-hover ">
+                    <thead >
+                        <tr>
+                            <th>S.NO</th>
+                            <th>TITLE</th>
+                            <th>ITEM</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor ="let ele of electronics1; let i = index" >
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{ele.title}}</td>
+                            <td>{{ele.ITEM}}</td>
+                            <td>{{ele.description}}</td>
+                            <td>{{ele.price}}</td>
+                            <td><button class="btn btn-danger">DELETE</button></td>
+                        </tr>
+                    </tbody>
+                 </table>
+               </div>
+        </mat-tab>
+        <!--accessories-->
+        <mat-tab label="ACCESSORIES">
+            <div class="container my-4 text-center">
+                <button class="btn btn-primary">ADD PRODUCT</button>
+            </div>
+            <!--new product form-->
+            <!--product preview-->
+            <!--product list table-->
+               <div class="container text-center my-4 table-responsive">
+                <table  class="mat-elevation-z8 table table-hover ">
+                    <thead >
+                        <tr>
+                            <th>S.NO</th>
+                            <th>TITLE</th>
+                            <th>ITEM</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor ="let aax of accessories1; let i = index" >
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{aax.title}}</td>
+                            <td>{{aax.ITEM}}</td>
+                            <td>{{aax.description}}</td>
+                            <td>{{aax.price}}</td>
+                            <td><button class="btn btn-danger">DELETE</button></td>
+                        </tr>
+                    </tbody>
+                 </table>
+               </div>
+        </mat-tab>
+        <!--fashion-->
+        <mat-tab label="Fashion">
+            <div class="container my-4 text-center">
+                <button class="btn btn-primary">ADD PRODUCT</button>
+            </div>
+            <!--new product form-->
+            <!--product preview-->
+            <!--product list table-->
+               <div class="container text-center my-4 table-responsive">
+                <table  class="mat-elevation-z8 table table-hover ">
+                    <thead >
+                        <tr>
+                            <th>S.NO</th>
+                            <th>TITLE</th>
+                            <th>ITEM</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor ="let fas of fashion1;let i = index" >
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{fas.title}}</td>
+                            <td>{{fas.ITEM}}</td>
+                            <td>{{fas.description}}</td>
+                            <td>{{fas.price}}</td>
+                            <td><button class="btn btn-danger">DELETE</button></td>
+                        </tr>
+                    </tbody>
+                 </table>
+               </div>
+        </mat-tab>
+        <!--grocery-->
+        <mat-tab label="GROCERY">
+            <div class="container my-4 text-center">
+                <button class="btn btn-primary">ADD PRODUCT</button>
+            </div>
+            <!--new product form-->
+            <!--produt preview -->
+            <!--product list table-->
+               <div class="container text-center my-4 table-responsive">
+                <table  class="mat-elevation-z8 table table-hover ">
+                    <thead >
+                        <tr>
+                            <th>S.NO</th>
+                            <th>TITLE</th>
+                            <th>QUANTITY</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor ="let groc of grocery1;let i = index" >
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{groc.title}}</td>
+                            <td>{{groc.quantity}}</td>
+                            <td>{{groc.description}}</td>
+                            <td>{{groc.price}}</td>
+                            <td><button class="btn btn-danger">DELETE</button></td>
+                        </tr>
+                    </tbody>
+                 </table>
+               </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

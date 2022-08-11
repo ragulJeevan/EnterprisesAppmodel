@@ -1,0 +1,22 @@
+<div class="container my-3">
+        <div class="row my-2">
+            <ng-container *ngFor ="let mobile of mobiles">
+            <div class="col-md-4 my-2">
+                <div class="card" style="width:18rem">
+                    <div class="card-body">
+                        <div class="card-title text-center bg-secondary"><b>{{mobile.title|uppercase}}</b> </div>
+                        <hr>
+                        <div class="card-text">
+                            <p><b>Model: </b>{{mobile.model}}</p>
+                            <p><b>Description</b>:{{mobile.description}}...</p>
+                            <p><span><b>Price</b>:RS:</span>{{mobile.price}}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer d-grid">
+                        <button class="btn btn-primary">ADD TO CART</button>
+                    </div>  
+                </div>
+            </div>
+        </ng-container>
+        </div>
+</div>

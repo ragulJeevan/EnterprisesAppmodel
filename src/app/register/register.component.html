@@ -1,0 +1,109 @@
+<div class="container mt-4">
+   <div class="card">
+    <div class="card-body">
+        <div class="container text-center bg-success"><h2>REGISTER</h2></div>
+        <form [formGroup]="registerForm">
+           <!--name-->
+           <div class="row">
+            <div class="col-md-6">
+               <div class="mb-3">
+                <label for="fname">FIRST NAME</label>
+                <input type="text" class="form-control" formControlName ="fname" >
+               </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                 <label for="lname">LAST NAME</label>
+                 <input type="text" class="form-control" formControlName ="lname">
+                </div>
+             </div>
+        </div>
+        <!--dob and gender-->
+        <div class="row">
+            <div class="col-md-6">
+               <div class="mb-3">
+                <label for="dateObirth">D.O.B</label>
+                <input type="date" class="form-control" formControlName ="dateObirth">
+               </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                 <label for="gender">GENDER</label>
+                 <select  id="gender" class="form-control" formControlName ="gender">
+                    <option value="male">MALE</option>
+                    <option value="female">FEMALE</option>
+                    <option value="others">OTHERS</option>
+                 </select>
+                </div>
+             </div>
+        </div>
+        <!--address-->
+        <div class="row">
+            <div class="col-md-6">
+               <div class="mb-3">
+                <label for="street">STREET</label>
+                <input type="text" class="form-control" formControlName ="street" >
+               </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                 <label for="city">CITY</label>
+                 <input type="text" class="form-control" formControlName ="city">
+                </div>
+             </div>
+        </div>
+        <!---->
+        <div class="row">
+            <div class="col-md-6">
+               <div class="mb-3">
+                <label for="district">DISTRICT</label>
+                <input type="text" class="form-control" formControlName ="district">
+               </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                 <label for="state">STATE</label>
+                 <input type="text" class="form-control" formControlName ="state">
+                </div>
+             </div>
+        </div>
+           <!--number and mail-->
+           <div class="row">
+            <div class="col-md-6">
+               <div class="mb-3">
+                <label for="eMail">EMAIL</label>
+                <input type="email" class="form-control"formControlName ="eMail">
+               </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                 <label for="mobileNumber">MOBILE NUMBER</label>
+                 <input type="number" class="form-control" formControlName ="mobileNumber">
+                </div>
+             </div>
+        </div>
+           <!--passwords-->
+           <div class="row">
+            <div class="col-md-6">
+               <div class="mb-3">
+                <label for="passCode1">NEW PASSWORD</label>
+                <input type="password" class="form-control" formControlName ="passCode1">
+               </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                 <label for="passCode2">CONFIRM PASSWORD</label>
+                 <input type="text" class="form-control" formControlName ="passCode2">
+                </div>
+             </div>
+        </div>
+        <div class="mb-3 text-center">
+            <input type="checkbox" formControlName ="terms">I agree to terms and conditions
+        </div>
+        <div class="mb-3 text-center">
+            <button class="btn btn-success " [disabled]="!registerForm.valid">REGISTER</button>
+        </div>
+        </form>
+    </div>
+   </div>
+</div>

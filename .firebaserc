@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "enterpriseapp-a766c": {
+      "hosting": {
+        "EnterpriseApp": [
+          "enterpriseapp-a766c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "enterpriseapp-a766c"
+  }
+}

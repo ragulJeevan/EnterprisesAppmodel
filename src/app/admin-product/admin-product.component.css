@@ -1,0 +1,12 @@
+
+tr{
+    padding: 20px; 
+    background-color: azure; 
+}
+
+td,th{
+    padding: 20px;
+}
+thead{
+    background-color: antiquewhite;
+}

@@ -1,0 +1,22 @@
+<div class="container my-3">
+    <div class="row ">
+        <ng-container *ngFor ="let gros of houseHold ">
+        <div class="col-md-4 my-2">
+            <div class="card" style="width:18rem">
+                <div class="card-body">
+                    <div class="card-title bg-secondary text-center"><b>{{gros.title|uppercase}}</b></div><hr>
+                    <div class="card-text">
+                        <p><b>Quantity</b>: {{gros.quantity}}</p>
+                        <p><b>Desccription</b>: {{gros.description}}...</p>
+                        <p><b>Price</b>:Rs:{{gros.price}}</p>
+                    </div>
+                </div>
+                <div class="card-footer d-grid">
+                    <button class="btn btn-primary">ADD TO CART</button>
+                </div>  
+            </div>
+        </div>
+    </ng-container>
+    </div>
+</div>
+
