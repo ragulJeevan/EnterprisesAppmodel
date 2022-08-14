@@ -1,14 +1,14 @@
 <div class="container mt-4">
    <div class="row">
     <div class="col-md-6">
-        <div class="container text-center bg-primary"><h2>LOGIN</h2></div>
+        <div class="container text-center bg-primary"><h2>{{name}}LOGIN</h2></div>
         <br>
         <div class="card">
             <div class="card-body">
-                <form [formGroup]="loginForm">
+                <form [formGroup]="loginForm">       
                     <div class="mb-3">
                         <label for="name">NAME</label>
-                        <input type="text" class="form-control" formControlName="name" >
+                        <input type="text" class="form-control" formControlName="name" [(ngModel)]="name" id="name">
                     </div>
                     <div class="mb-3">
                         <label for="email">EMAIL</label>
@@ -21,11 +21,13 @@
                     </div>
                     <div class="alert alert-danger" *ngIf="loginForm.controls['passCode'].touched && loginForm.controls['passCode'].invalid">password should be minimun of 8 caharcters and must contain a special character</div>
                     <div class="mb-3 text-center">
-                        <button class="btn btn-primary" [disabled]="!loginForm.valid" (click)="login()"  >LOGIN</button>
+                        <mat-spinner *ngIf="showSpinner"></mat-spinner>
+                        <button class="btn btn-primary" [disabled]="!loginForm.valid" (click)="login()">LOGIN</button>
                     </div>
                 </form>
                 <p>No Account? <a class="bg-light" routerLink="/register" >Register Here</a> </p>
             </div>
+           
         </div>
     </div>
    </div>

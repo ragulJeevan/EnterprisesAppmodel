@@ -1,5 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -9,7 +11,9 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
   loginForm:FormGroup|any;
-  constructor(private lgservice:LoginService) {
+  name:string="";
+  showSpinner=false;
+  constructor(private lgservice:LoginService,private router:Router) {
   }
   ngOnInit(): void {
     this.loginForm= new FormGroup(
@@ -20,8 +24,13 @@ export class LoginComponent implements OnInit {
     
   }
   login(){
-   this.loginForm.value;
+        this.router.navigate(['/home'])
+        this.showSpinner=true;
+      setTimeout(() => {
+        this.showSpinner=false;
+      }, 3000);
   }
+
 
   
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -9,11 +10,17 @@ import { ProductService } from '../services/product.service';
 export class MobileComponent implements OnInit {
   mobiles:any
 
-  constructor(mobileService:ProductService) { 
+  constructor(private mobileService:ProductService,
+              private adcart:CartService,
+    ) { 
    this.mobiles= mobileService.getMobile();
   }
 
   ngOnInit(): void {
+  }
+  addtoCart(mobile:any){
+    this.adcart.addtoCart(mobile);
+    alert('added to cart')
   }
 
 }

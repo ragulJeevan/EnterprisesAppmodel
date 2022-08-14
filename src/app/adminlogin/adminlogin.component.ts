@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { LoginService } from '../services/login.service';
 export class AdminloginComponent implements OnInit {
   adminForm:FormGroup|any;
   adminName:any;
+  showSpinner=false;
 
-  constructor() {}
+  constructor(private router:Router) {}
   ngOnInit(): void {
     this.adminForm= new FormGroup(
       { 'name': new FormControl("",[Validators.required]),
@@ -20,9 +22,11 @@ export class AdminloginComponent implements OnInit {
     )
     }
     adminLogin(){
-      console.log(this.adminForm.value);
-      
-    }
-    
-
+      this.showSpinner=true;
+      setTimeout(() => {
+        this.showSpinner=false;
+      }, 2000);
+      //console.log(this.adminForm.value);
+      //this.router.navigate(['/product'])
+      }
 }

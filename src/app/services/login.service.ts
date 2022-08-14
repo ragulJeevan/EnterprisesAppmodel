@@ -5,5 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService { 
+  loginName:any;
   constructor() { }
+
+  
 }

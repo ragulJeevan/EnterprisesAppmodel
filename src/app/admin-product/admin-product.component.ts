@@ -11,7 +11,6 @@ export class AdminProductComponent implements OnInit {
   showTable=false;
   showCard=false;
   //mobile
-
   mobile1 : any;
   previewMobile:any;
   mobileForm: FormGroup|any;
@@ -23,22 +22,42 @@ export class AdminProductComponent implements OnInit {
   laptop1 : any;
   previewLaptop:any;
   laptopForm: FormGroup|any;
+  lapPrice="";
+  lapTitle="";
+  lapModel="";
+  lapDescription="";
   //electronics
   electronics1 : any;
   previewElectronic:any;
   electronicForm: FormGroup|any;
+  elecPrice="";
+  elecTitle="";
+  elecModel="";
+  elecDescription="";
   //accessories
   accessories1 : any;
   previewAccessory:any;
   accessoryForm: FormGroup|any;
+  accPrice="";
+  accTitle="";
+  accModel="";
+  accDescription="";
   //fashion
   fashion1 : any;
   previewFashion:any;
   fashionForm: FormGroup|any;
+  fasPrice="";
+  fasTitle="";
+  fasModel="";
+  fasDescription="";
   //grocery
   grocery1 : any;
   previewGrocery:any;
   groceryForm: FormGroup|any;
+  grocPrice="";
+  grocTitle="";
+  grocModel="";
+  grocDescription="";
 
 
   constructor(

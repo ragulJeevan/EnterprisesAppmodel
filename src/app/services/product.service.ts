@@ -110,7 +110,7 @@ export class ProductService {
   }
   //laptop
   getLaptop(){
-    return this.laptop;
+    return this.laptop;      
   }
   //electronics
   getAccesspries(){

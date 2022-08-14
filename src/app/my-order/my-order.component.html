@@ -1,1 +1,60 @@
-<p>my-order works!</p>
+
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="CART">
+            <table class="table mat-elevation-z8 table table-hover table-border " >
+                <thead class="bg-secondary">
+                    <tr>
+                        <th>S.NO</th>
+                        <th>TITLE</th>
+                        <th>DESCRIPTION</th>
+                        <th>PRICE</th>
+                    </tr>
+                </thead>
+                <tbody class="table table-stripped" *ngFor="let item of product;let  i= index" style="background-color:rgb(235, 230, 240)">
+                    <tr >
+                        <td>{{i+1}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </tbody>
+                <tfoot style="background-color:aliceblue">
+                    <tr>
+                        <td colspan="3" class="text-center" ><b>TOTAL</b></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </mat-tab>
+        <mat-tab label="GROCERY">
+            
+                <table class="table mat-elevation-z8 table table-hover table-border " >
+                    <thead class="bg-secondary">
+                        <tr>
+                            <th>S.NO</th>
+                            <th>TITLE</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table table-stripped" style="background-color:rgb(237, 229, 243)" >
+                        <tr *ngFor="let item of grocery;let l = index ">
+                            <td>{{l+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.price}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot style="background-color:aliceblue">
+                        <tr>
+                            <td colspan="3" class="text-center"><b>TOTAL</b></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+

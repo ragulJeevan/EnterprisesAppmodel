@@ -19,14 +19,15 @@
                      <div class="mb-3">
                          <label for="passcode">PASSWORD</label>
                          <input type="password" class="form-control" formControlName="passCode">
-                     </div>
+                     </div> <mat-spinner *ngIf="showSpinner"></mat-spinner>
                      <div class="alert alert-danger" *ngIf="adminForm.controls['passCode'].touched && adminForm.controls['passCode'].invalid">password should be minimun of 5 caharcters and must contain a special character</div>
-                     <div class="mb-3 text-center">
-                         <button class="btn btn-primary" [disabled]="!adminForm.valid" (click)="adminLogin()" >LOGIN</button>
+                     <div class="mb-3 text-center"> 
+                         <button class="btn btn-primary"  (click)="adminLogin()" >LOGIN</button>
                      </div>
                  </form>
              </div>
          </div>
      </div>
     </div>
+   
  </div>

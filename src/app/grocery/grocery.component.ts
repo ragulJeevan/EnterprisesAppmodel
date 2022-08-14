@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -9,11 +10,15 @@ import { ProductService } from '../services/product.service';
 export class GroceryComponent implements OnInit {
   houseHold:any;
 
-  constructor(groceryService:ProductService) {
+  constructor(groceryService:ProductService,
+   private adgrocery:CartService) {
     this.houseHold = groceryService.getGrocery();
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  addGrocery(gros:any){
+    this.adgrocery.addGrocery(gros);
   }
+
 
 }

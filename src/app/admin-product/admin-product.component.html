@@ -11,48 +11,24 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-title text-center"><b>ADD NEW PRODUCT</b></div><hr>
-                                    <!-- <form [formGroup]="mobileForm">
+                                                                      <form #addMobile = "ngForm" >
                                         <div class="mb-3">
                                             <label for="title">TITLE</label>
-                                            <input type="text" class="form-control" formControlName="mobTitle" [(ngModel)]="mobTitle">
+                                            <input type="text" class="form-control"  [(ngModel)]="mobTitle" [ngModelOptions]="{standalone: true}">
                                         </div>
                                         <div class="mb-3">
                                             <label for="model">Model</label>
-                                            <input type="text" class="form-control" formControlName="mobModel" [(ngModel)]="mobModel">
+                                            <input type="text" class="form-control" [(ngModel)]="mobModel" [ngModelOptions]="{standalone: true}">
                                         </div>
                                         <div class="mb-3">
                                             <label for="description">Description</label>
-                                            <textarea   cols="08" rows="05" class="form-control" formControlName="mobDescription" [(ngModel)]="mobDescription"></textarea>
+                                            <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="mobDescription" [ngModelOptions]="{standalone: true}"></textarea>
                                         </div>
                                         <div class="mb-3">
                                             <label for="price">Price</label>
                                            <div class="input-group">
                                             <span class="input-group-text">Rs</span>
-                                            <input type="number" class="form-control"formControlName="mobPrice" [(ngModel)]="mobPrice">
-                                           </div>                       
-                                         </div>
-                                        <div class="mb-3 text-center">
-                                            <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
-                                        </div>
-                                    </form> -->
-                                    <form #addMobile = "ngForm" >
-                                        <div class="mb-3">
-                                            <label for="title">TITLE</label>
-                                            <input type="text" class="form-control"  [(ngModel)]="mobTitle">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="model">Model</label>
-                                            <input type="text" class="form-control" [(ngModel)]="mobModel">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="description">Description</label>
-                                            <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="mobDescription"></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="price">Price</label>
-                                           <div class="input-group">
-                                            <span class="input-group-text">Rs</span>
-                                            <input type="number" class="form-control" [(ngModel)]="mobPrice">
+                                            <input type="number" class="form-control" [(ngModel)]="mobPrice" [ngModelOptions]="{standalone: true}">
                                            </div>                       
                                          </div>
                                         <div class="mb-3 text-center">
@@ -113,11 +89,65 @@
         </mat-tab>
         <!--laptop-->
         <mat-tab label="LAPTOP">
-            <div class="container my-4 text-center">
-                <button class="btn btn-primary">ADD PRODUCT</button>
-            </div>
-            <!--new product form-->
-            <!--product preview-->
+            <div class="container my-4 ">
+                <div class="text-center"> <button class="btn btn-primary" (click)="addItem()">ADD PRODUCT</button> </div>  <hr>
+                <!--new product form-->
+                  <div class="row">
+                      <ng-container *ngIf="showTable" class="container  mt-5">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <div class="card-title text-center"><b>ADD NEW PRODUCT</b></div><hr>
+                                                                        <form #addMobile = "ngForm" >
+                                          <div class="mb-3">
+                                              <label for="title">TITLE</label>
+                                              <input type="text" class="form-control"  [(ngModel)]="lapTitle" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="model">Processor</label>
+                                              <input type="text" class="form-control" [(ngModel)]="lapModel" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="description">Description</label>
+                                              <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="lapDescription" [ngModelOptions]="{standalone: true}"></textarea>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="price">Price</label>
+                                             <div class="input-group">
+                                              <span class="input-group-text">Rs</span>
+                                              <input type="number" class="form-control" [(ngModel)]="lapPrice" [ngModelOptions]="{standalone: true}">
+                                             </div>                       
+                                           </div>
+                                          <div class="mb-3 text-center">
+                                              <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <!--product preview-->
+                      <ng-container *ngIf="showCard" >
+                          <div class="col-md-6 my-2" >
+                              <div class="card" >
+                                  <div class="card-body">
+                                      <div class="card-title text-center bg-secondary"><b>{{lapTitle|uppercase}}</b> </div>
+                                      <hr>
+                                      <div class="card-text">
+                                          <p><b>Processor: </b>{{lapModel}}</p>
+                                          <p><b>Description</b>:{{lapDescription}}</p>
+                                          <p><span><b>Price</b>:RS:</span>{{lapPrice}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="card-footer text-center">
+                                      <button class="btn btn-primary">ADD PRODUCT</button>    
+                                      <button class="btn btn-danger" type="reset">CANCEL</button>
+                                  </div>  
+                              </div>
+                          </div>
+                      </ng-container>
+                  </div>
+              </div>
             <!--product list table-->
                <div class="container text-center my-4 table-responsive">
                 <table  class="mat-elevation-z8 table table-hover ">
@@ -146,11 +176,65 @@
         </mat-tab>
         <!--electronics-->
         <mat-tab label="ELECTRONICS">
-            <div class="container my-4 text-center">
-                <button class="btn btn-primary">ADD PRODUCT</button>
-            </div>
-            <!--new product form-->
-            <!--product preview-->
+            <div class="container my-4 ">
+                <div class="text-center"> <button class="btn btn-primary" (click)="addItem()">ADD PRODUCT</button> </div>  <hr>
+                <!--new product form-->
+                  <div class="row">
+                      <ng-container *ngIf="showTable" class="container  mt-5">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <div class="card-title text-center"><b>ADD NEW PRODUCT</b></div><hr>
+                                                                        <form #addMobile = "ngForm" >
+                                          <div class="mb-3">
+                                              <label for="title">TITLE</label>
+                                              <input type="text" class="form-control"  [(ngModel)]="elecTitle" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="model">Item</label>
+                                              <input type="text" class="form-control" [(ngModel)]="elecModel" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="description">Description</label>
+                                              <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="elecDescription" [ngModelOptions]="{standalone: true}"></textarea>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="price">Price</label>
+                                             <div class="input-group">
+                                              <span class="input-group-text">Rs</span>
+                                              <input type="number" class="form-control" [(ngModel)]="elecPrice" [ngModelOptions]="{standalone: true}">
+                                             </div>                       
+                                           </div>
+                                          <div class="mb-3 text-center">
+                                              <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <!--product preview-->
+                      <ng-container *ngIf="showCard" >
+                          <div class="col-md-6 my-2" >
+                              <div class="card" >
+                                  <div class="card-body">
+                                      <div class="card-title text-center bg-secondary"><b>{{elecTitle|uppercase}}</b> </div>
+                                      <hr>
+                                      <div class="card-text">
+                                          <p><b>Item: </b>{{elecModel}}</p>
+                                          <p><b>Description</b>:{{elecDescription}}</p>
+                                          <p><span><b>Price</b>:RS:</span>{{elecPrice}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="card-footer text-center">
+                                      <button class="btn btn-primary">ADD PRODUCT</button>    
+                                      <button class="btn btn-danger" type="reset">CANCEL</button>
+                                  </div>  
+                              </div>
+                          </div>
+                      </ng-container>
+                  </div>
+              </div>
             <!--product list table-->
                <div class="container text-center my-4 table-responsive">
                 <table  class="mat-elevation-z8 table table-hover ">
@@ -179,11 +263,65 @@
         </mat-tab>
         <!--accessories-->
         <mat-tab label="ACCESSORIES">
-            <div class="container my-4 text-center">
-                <button class="btn btn-primary">ADD PRODUCT</button>
-            </div>
-            <!--new product form-->
-            <!--product preview-->
+            <div class="container my-4 ">
+                <div class="text-center"> <button class="btn btn-primary" (click)="addItem()">ADD PRODUCT</button> </div>  <hr>
+                <!--new product form-->
+                  <div class="row">
+                      <ng-container *ngIf="showTable" class="container  mt-5">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <div class="card-title text-center"><b>ADD NEW PRODUCT</b></div><hr>
+                                                                        <form #addMobile = "ngForm" >
+                                          <div class="mb-3">
+                                              <label for="title">TITLE</label>
+                                              <input type="text" class="form-control"  [(ngModel)]="accTitle" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="model">Item</label>
+                                              <input type="text" class="form-control" [(ngModel)]="accModel" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="description">Description</label>
+                                              <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="accDescription" [ngModelOptions]="{standalone: true}"></textarea>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="price">Price</label>
+                                             <div class="input-group">
+                                              <span class="input-group-text">Rs</span>
+                                              <input type="number" class="form-control" [(ngModel)]="accPrice" [ngModelOptions]="{standalone: true}">
+                                             </div>                       
+                                           </div>
+                                          <div class="mb-3 text-center">
+                                              <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <!--product preview-->
+                      <ng-container *ngIf="showCard" >
+                          <div class="col-md-6 my-2" >
+                              <div class="card" >
+                                  <div class="card-body">
+                                      <div class="card-title text-center bg-secondary"><b>{{accTitle|uppercase}}</b> </div>
+                                      <hr>
+                                      <div class="card-text">
+                                          <p><b>Item: </b>{{accModel}}</p>
+                                          <p><b>Description</b>:{{accDescription}}</p>
+                                          <p><span><b>Price</b>:RS:</span>{{accPrice}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="card-footer text-center">
+                                      <button class="btn btn-primary">ADD PRODUCT</button>    
+                                      <button class="btn btn-danger" type="reset">CANCEL</button>
+                                  </div>  
+                              </div>
+                          </div>
+                      </ng-container>
+                  </div>
+              </div>
             <!--product list table-->
                <div class="container text-center my-4 table-responsive">
                 <table  class="mat-elevation-z8 table table-hover ">
@@ -212,11 +350,65 @@
         </mat-tab>
         <!--fashion-->
         <mat-tab label="Fashion">
-            <div class="container my-4 text-center">
-                <button class="btn btn-primary">ADD PRODUCT</button>
-            </div>
-            <!--new product form-->
-            <!--product preview-->
+            <div class="container my-4 ">
+                <div class="text-center"> <button class="btn btn-primary" (click)="addItem()">ADD PRODUCT</button> </div>  <hr>
+                <!--new product form-->
+                  <div class="row">
+                      <ng-container *ngIf="showTable" class="container  mt-5">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <div class="card-title text-center"><b>ADD NEW PRODUCT</b></div><hr>
+                                                                        <form #addMobile = "ngForm" >
+                                          <div class="mb-3">
+                                              <label for="title">TITLE</label>
+                                              <input type="text" class="form-control"  [(ngModel)]="fasTitle" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="model">ITEM</label>
+                                              <input type="text" class="form-control" [(ngModel)]="fasModel" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="description">Description</label>
+                                              <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="fasDescription" [ngModelOptions]="{standalone: true}"></textarea>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="price">Price</label>
+                                             <div class="input-group">
+                                              <span class="input-group-text">Rs</span>
+                                              <input type="number" class="form-control" [(ngModel)]="fasPrice" [ngModelOptions]="{standalone: true}">
+                                             </div>                       
+                                           </div>
+                                          <div class="mb-3 text-center">
+                                              <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <!--product preview-->
+                      <ng-container *ngIf="showCard" >
+                          <div class="col-md-6 my-2" >
+                              <div class="card" >
+                                  <div class="card-body">
+                                      <div class="card-title text-center bg-secondary"><b>{{fasTitle|uppercase}}</b> </div>
+                                      <hr>
+                                      <div class="card-text">
+                                          <p><b>ITEM</b>:{{fasModel}}</p>
+                                          <p><b>Description</b>:{{fasDescription}}</p>
+                                          <p><span><b>Price</b>:RS:</span>{{fasPrice}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="card-footer text-center">
+                                      <button class="btn btn-primary">ADD PRODUCT</button>    
+                                      <button class="btn btn-danger" type="reset">CANCEL</button>
+                                  </div>  
+                              </div>
+                          </div>
+                      </ng-container>
+                  </div>
+              </div>
             <!--product list table-->
                <div class="container text-center my-4 table-responsive">
                 <table  class="mat-elevation-z8 table table-hover ">
@@ -245,11 +437,65 @@
         </mat-tab>
         <!--grocery-->
         <mat-tab label="GROCERY">
-            <div class="container my-4 text-center">
-                <button class="btn btn-primary">ADD PRODUCT</button>
-            </div>
-            <!--new product form-->
-            <!--produt preview -->
+            <div class="container my-4 ">
+                <div class="text-center"> <button class="btn btn-primary" (click)="addItem()">ADD PRODUCT</button> </div>  <hr>
+                <!--new product form-->
+                  <div class="row">
+                      <ng-container *ngIf="showTable" class="container  mt-5">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <div class="card-title text-center"><b>ADD NEW PRODUCT</b></div><hr>
+                                                                        <form #addMobile = "ngForm" >
+                                          <div class="mb-3">
+                                              <label for="title">TITLE</label>
+                                              <input type="text" class="form-control"  [(ngModel)]="grocTitle" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="model">QUANTITY</label>
+                                              <input type="text" class="form-control" [(ngModel)]="grocModel" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="description">Description</label>
+                                              <textarea   cols="08" rows="05" class="form-control"  [(ngModel)]="grocDescription" [ngModelOptions]="{standalone: true}"></textarea>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="price">Price</label>
+                                             <div class="input-group">
+                                              <span class="input-group-text">Rs</span>
+                                              <input type="number" class="form-control" [(ngModel)]="grocPrice" [ngModelOptions]="{standalone: true}">
+                                             </div>                       
+                                           </div>
+                                          <div class="mb-3 text-center">
+                                              <button class="btn btn-secondary"(click)="previewItem()">Preview</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <!--product preview-->
+                      <ng-container *ngIf="showCard" >
+                          <div class="col-md-6 my-2" >
+                              <div class="card" >
+                                  <div class="card-body">
+                                      <div class="card-title text-center bg-secondary"><b>{{mobTitle|uppercase}}</b> </div>
+                                      <hr>
+                                      <div class="card-text">
+                                          <p><b>QUANTITY: </b>{{grocModel}}</p>
+                                          <p><b>Description</b>:{{grocDescription}}</p>
+                                          <p><span><b>Price</b>:RS:</span>{{grocPrice}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="card-footer text-center">
+                                      <button class="btn btn-primary">ADD PRODUCT</button>    
+                                      <button class="btn btn-danger" type="reset">CANCEL</button>
+                                  </div>  
+                              </div>
+                          </div>
+                      </ng-container>
+                  </div>
+              </div>
             <!--product list table-->
                <div class="container text-center my-4 table-responsive">
                 <table  class="mat-elevation-z8 table table-hover ">
