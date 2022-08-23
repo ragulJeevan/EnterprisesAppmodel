@@ -18,6 +18,7 @@ export class GroceryComponent implements OnInit {
   ngOnInit(): void {}
   addGrocery(gros:any){
     this.adgrocery.addGrocery(gros);
+    window.alert('added to cart');
   }
 
 

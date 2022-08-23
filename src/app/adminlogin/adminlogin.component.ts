@@ -16,17 +16,14 @@ export class AdminloginComponent implements OnInit {
   constructor(private router:Router) {}
   ngOnInit(): void {
     this.adminForm= new FormGroup(
-      { 'name': new FormControl("",[Validators.required]),
+      { 'userName': new FormControl("",[Validators.required]),
         'emailId': new FormControl("",[Validators.required,Validators.email]),
       'passCode': new FormControl("", [Validators.required,Validators.min(5)])}
-    )
-    }
-    adminLogin(){
-      this.showSpinner=true;
-      setTimeout(() => {
-        this.showSpinner=false;
-      }, 2000);
-      //console.log(this.adminForm.value);
-      //this.router.navigate(['/product'])
-      }
+     ) 
+  }
+    adminLogin(userName:any){
+      localStorage.setItem("userName",userName);
+      console.log(this.adminForm.value);
+      this.router.navigate(['/product']);
+    } 
 }

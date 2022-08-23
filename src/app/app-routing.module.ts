@@ -12,14 +12,15 @@ import { LoginComponent } from './login/login.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { MyOrderComponent } from './my-order/my-order.component';
 import { MyWishlistComponent } from './my-wishlist/my-wishlist.component';
+import { ProductloginGuard } from './productlogin.guard';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:"",component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'product',component:AdminProductComponent},
+  {path:'product',component:AdminProductComponent,canActivate:[ProductloginGuard]},
   {path:'admin',component:AdminloginComponent},
   {path:'mobile',component:MobileComponent},
   {path:'lap',component:LaptopComponent},

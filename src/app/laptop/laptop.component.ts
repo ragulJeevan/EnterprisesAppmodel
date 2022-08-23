@@ -18,6 +18,7 @@ export class LaptopComponent implements OnInit {
   }
   addtoCart(lap:any){
     this.adcart.addtoCart(lap);
+    window.alert('added to cart');
   }
 
 

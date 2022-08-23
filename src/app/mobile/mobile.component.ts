@@ -20,7 +20,7 @@ export class MobileComponent implements OnInit {
   }
   addtoCart(mobile:any){
     this.adcart.addtoCart(mobile);
-    alert('added to cart')
+    alert('added to cart');
   }
 
 }

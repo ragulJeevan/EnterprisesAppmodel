@@ -5,8 +5,23 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService { 
-  loginName:any;
   constructor() { }
-
-  
+  isUserlogged(){
+    const userName = localStorage.getItem("users");
+    if(!userName==null){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  isLoggedin(){
+    const userName = localStorage.getItem("userName");
+    if(userName=="Ragul"){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }

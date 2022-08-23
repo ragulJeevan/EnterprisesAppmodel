@@ -19,6 +19,7 @@ export class FashionComponent implements OnInit {
   }
   addtoCart(fash:any){
     this.adcart.addtoCart(fash);
+    window.alert('added to cart');
   }
 
 }

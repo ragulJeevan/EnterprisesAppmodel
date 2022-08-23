@@ -9,7 +9,7 @@
                  <form [formGroup]="adminForm">
                     <div class="mb-3">
                         <label for="text">NAME</label>
-                        <input type="mail" class="form-control" formControlName ="name">
+                        <input #userName type="text" class="form-control" formControlName ="userName">
                     </div>
                      <div class="mb-3">
                          <label for="email">EMAIL</label>
@@ -22,7 +22,7 @@
                      </div> <mat-spinner *ngIf="showSpinner"></mat-spinner>
                      <div class="alert alert-danger" *ngIf="adminForm.controls['passCode'].touched && adminForm.controls['passCode'].invalid">password should be minimun of 5 caharcters and must contain a special character</div>
                      <div class="mb-3 text-center"> 
-                         <button class="btn btn-primary"  (click)="adminLogin()" >LOGIN</button>
+                         <button class="btn btn-primary" [disabled]="!adminForm.valid" (click)="adminLogin(userName.value)" >LOGIN</button>
                      </div>
                  </form>
              </div>

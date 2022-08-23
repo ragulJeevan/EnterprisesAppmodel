@@ -18,5 +18,6 @@ export class ElectronicsComponent implements OnInit {
   }
 addtoCart(elect:any){
   this.adcart.addtoCart(elect);
+  window.alert('added to cart');
 }
 }

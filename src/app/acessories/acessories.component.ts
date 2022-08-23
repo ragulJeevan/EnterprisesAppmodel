@@ -19,5 +19,6 @@ export class AcessoriesComponent implements OnInit {
   }
   addtoCart(ax:any){
     this.adcart.addtoCart(ax);
+    window.alert('added to cart');
   }
 }

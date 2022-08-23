@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     )
     
   }
-  login(){
+  login(user:any){
+    localStorage.setItem("users",user);
         this.router.navigate(['/home'])
         this.showSpinner=true;
       setTimeout(() => {
